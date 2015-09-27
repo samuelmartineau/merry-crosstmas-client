@@ -1,0 +1,38 @@
+{
+  "name": "merry-crosstmas",
+  "version": "0.0.1",
+  "description": "Random cross-friends designation of who offers gifts to who",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samuelmartineau/merry-crosstmas.git"
+  },
+  "keywords": [
+    "christmass",
+    "email",
+    "friends",
+    "cross"
+  ],
+  "author": {
+    "name": "Samuel Martineau",
+    "mail": "samuelmartineau1990@gmail.com",
+    "url": "samuelmartineau.github.io"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/samuelmartineau/merry-crosstmas/issues"
+  },
+  "homepage": "https://github.com/samuelmartineau/merry-crosstmas#readme",
+  "devDependencies": {
+    "browser-sync": "^2.9.6",
+    "gulp": "^3.9.0",
+    "gulp-jade": "^1.1.0",
+    "gulp-riot": "^0.3.0",
+    "jade": "^1.11.0",
+    "path": "^0.12.7",
+    "require-dir": "^0.3.0"
+  }
+}
