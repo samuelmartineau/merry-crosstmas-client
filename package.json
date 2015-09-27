@@ -28,9 +28,13 @@
   "homepage": "https://github.com/samuelmartineau/merry-crosstmas#readme",
   "devDependencies": {
     "browser-sync": "^2.9.6",
+    "del": "^2.0.2",
     "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.0.2",
     "gulp-jade": "^1.1.0",
     "gulp-riot": "^0.3.0",
+    "gulp-sass": "^2.0.4",
+    "gulp-sass-lint": "^1.0.1",
     "jade": "^1.11.0",
     "path": "^0.12.7",
     "require-dir": "^0.3.0"

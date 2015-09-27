@@ -1,2 +1,3 @@
 card
-   h1 card
+  .card
+    h1 card
