@@ -6,6 +6,6 @@ gulp.task('dev', ['serve'], function() {
 
 });
 
-gulp.task('build', ['riot', 'template'], function() {
+gulp.task('build', ['assets', 'riot', 'template'], function() {
 
 });
