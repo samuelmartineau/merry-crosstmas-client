@@ -11,4 +11,4 @@ gulp.task('clean', function(cb){
 
 gulp.task('dev', ['serve']);
 
-gulp.task('build', ['clean', 'quality', 'assets', 'style', 'riot', 'template']);
+gulp.task('build', ['clean', 'quality', 'assets', 'scripts', 'styles', 'riot', 'template']);

@@ -1,13 +1,19 @@
-$BG_BACKGROUND_LEFT: rgba(255, 165, 150, .5);
-$BG_BACKGROUND_RIGHT: rgba(0, 228, 255, .35);
+* {
+  box-sizing: border-box;
+}
 
 body {
   font-family: 'Montserrat', sans-serif;
   background-image: url('../assets/images/overlay.png'), linear-gradient(60deg, $BG_BACKGROUND_LEFT 5%, $BG_BACKGROUND_RIGHT), url('../assets/images/background.jpg');
+  background-attachment: fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .container {
+  display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 600px;
+  max-width: 600px;
 }

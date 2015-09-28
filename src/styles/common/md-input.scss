@@ -1,0 +1,126 @@
+.md-input {
+  position: relative;
+  margin-top: 30px;
+
+  input {
+    font-size: 18px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    border: 0;
+    border-bottom: 1px solid $COLOR_PRIMARY;
+    border-radius: 0;
+    width: 100%;
+
+    &:focus,
+    &:invalid,
+    &:required {
+      outline: none;
+      box-shadow: none;
+    }
+
+    &:focus ~ label,
+    &:valid ~ label {
+      top: -20px;
+      font-size: 14px;
+      color: $COLOR_PRIMARY;
+    }
+
+    &:focus ~ .bar:before,
+    &:focus ~ .bar:after {
+      width: 50%;
+    }
+
+    &:focus ~ .highlight {
+      -webkit-animation: inputlighter .3s ease;
+      -moz-animation: inputlighter .3s ease;
+      animation: inputlighter .3s ease;
+    }
+  }
+
+  label {
+    color: $COLOR_GREY_LIGHT;
+    font-size: 18px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: .2s ease all;
+  }
+
+  .bar {
+    position: relative;
+    display: block;
+
+    &:before {
+      left: 50%;
+    }
+
+    &:after {
+      right: 50%;
+    }
+
+    &:before,
+    &:after {
+      content: '';
+      height: 2px;
+      width: 0;
+      bottom: 1px;
+      position: absolute;
+      background: $COLOR_PRIMARY;
+      transition: .2s ease all;
+    }
+  }
+
+  .highlight {
+    position: absolute;
+    height: 60%;
+    top: 25%;
+    left: 0;
+    pointer-events: none;
+    opacity: .5;
+  }
+}
+
+@-webkit-keyframes inputlighter {
+  from {
+    background: $COLOR_PRIMARY;
+  }
+
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+
+@-moz-keyframes inputlighter {
+  from {
+    background: $COLOR_PRIMARY;
+  }
+
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+
+@keyframes inputlighter {
+  from {
+    background: $COLOR_PRIMARY;
+  }
+
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+
+button::-moz-focus-inner,
+input[type='reset']::-moz-focus-inner,
+input[type='button']::-moz-focus-inner,
+input[type='submit']::-moz-focus-inner,
+input[type='file'] > input[type='button']::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}

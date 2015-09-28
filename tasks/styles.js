@@ -4,7 +4,7 @@ var config = require('../config');
 var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
 
-gulp.task('style', function() {
+gulp.task('styles', function() {
 	return gulp.src(path.join(config.src, 'styles', 'main.scss'))
 		.pipe(sass().on('error', sass.logError))
 		.pipe(autoprefixer({
