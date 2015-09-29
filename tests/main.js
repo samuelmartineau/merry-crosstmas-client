@@ -4,7 +4,7 @@ var riot = require('riot');
 var ContactModel = require('../src/scripts/models/contact.js');
 
 test('[Test ContactModel]', function(t) {
-    t.plan(2);
+    t.plan(4);
 
     var contactModel = new ContactModel({riot: riot});
 
@@ -17,5 +17,12 @@ test('[Test ContactModel]', function(t) {
       return hasGoodSize && hasGoodContent;
     }, 'ContactModel.add should add a contact');
 
+    contactModel.editName(0, 'test');
+    t.true(contactModel.contacts[0].name === 'test', 'ContactModel.editName should edit the name of contact (id)');
+
+    contactModel.editMail(0, 'test@mail.fr');
+    t.true(contactModel.contacts[0].mail === 'test@mail.fr', 'ContactModel.editMail should edit the mail of contact (id)');
+
+    contactModel.send();
 
 });

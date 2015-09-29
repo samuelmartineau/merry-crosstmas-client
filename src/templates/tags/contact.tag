@@ -19,26 +19,30 @@ contact
     changeName = window.utils.debounce(function(e) {
         var value = e.target.value;
         contactModel.editName(this.id, value);
-        this.nameValid = value.length > 0;
-        this.update();
+        self.nameValid = value.length > 0;
+        self.update();
     }, 300);
 
     changeMail = window.utils.debounce(function(e) {
         var value = e.target.value;
         contactModel.editMail(this.id, value);
-        this.validMail = window.utils.validateEmail(value);
-        this.update();
+        self.validMail = window.utils.validateEmail(value);
+        self.update();
     }, 300);
 
-    this.on('update', function(){
-      if (this.parent.id > 2) {
-        window.smoothScroll(this.root, 500);
+    self.on('mount', function(){
+      var lastElement = contactModel.contacts[contactModel.contacts.length-1];
+      if (contactModel.contacts.length > 3 && self.opts.data.id === lastElement.id) {
+        // DOM is not render when on mount event is triggered and isMounted is true
+        // https://github.com/riot/riot/issues/1033
+        setTimeout(function(){
+          window.smoothScroll(self.root, 500, function(){console.log('end update')});
+        }, 0);
       }
     })
 
     contactModel.on('error', function(id){
       if (self.id === id) {
-        debugger;
-        window.smoothScroll(self.root, 500);
+        window.smoothScroll(self.root, 500, function(){console.log('end')});
       }
     })

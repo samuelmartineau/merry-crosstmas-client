@@ -62,7 +62,7 @@
     "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {
-    "smoothscroll": "^0.2.1"
+    "smoothscroll": "smoothscroll"
   },
   "pre-commit": [
     "quality"
