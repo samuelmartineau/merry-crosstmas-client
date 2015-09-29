@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "gulp dev",
     "quality": "gulp quality",
-    "coveralls": "istanbul cover tape -R spec ./tests/**/*.js"
+    "coveralls": "istanbul cover -x '**/utils.js' tape -R spec ./tests/**/*.js"
   },
   "repository": {
     "type": "git",
