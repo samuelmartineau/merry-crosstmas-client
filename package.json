@@ -3,10 +3,11 @@
   "version": "0.0.1",
   "description": "Random cross-friends designation of who offers gifts to who",
   "main": "gulpfile.js",
+  "engines" : { "npm" : "~4.0.0" },
   "scripts": {
     "dev": "gulp dev",
     "quality": "gulp quality",
-    "coveralls": "istanbul cover node_modules/.bin/tape -R spec ./tests/**/*.js"
+    "coveralls": "istanbul cover tape -R spec ./tests/**/*.js"
   },
   "repository": {
     "type": "git",
