@@ -18,14 +18,14 @@ contact
     var self = this;
     changeName = window.utils.debounce(function(e) {
         var value = e.target.value;
-        contact.editName(this.id, value);
+        contactModel.editName(this.id, value);
         this.nameValid = value.length > 0;
         this.update();
     }, 300);
 
     changeMail = window.utils.debounce(function(e) {
         var value = e.target.value;
-        contact.editMail(this.id, value);
+        contactModel.editMail(this.id, value);
         this.validMail = window.utils.validateEmail(value);
         this.update();
     }, 300);
@@ -36,7 +36,7 @@ contact
       }
     })
 
-    contact.on('error', function(id){
+    contactModel.on('error', function(id){
       if (self.id === id) {
         debugger;
         window.smoothScroll(self.root, 500);
