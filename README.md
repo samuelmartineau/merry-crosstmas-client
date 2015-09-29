@@ -1,8 +1,8 @@
 # merry-crosstmas
 
-[![Build Status](https://travis-ci.org/samuelmartineau/gulp-pdf-thumbnail.svg?branch=master)](https://travis-ci.org/samuelmartineau/gulp-pdf-thumbnail)
-[![Coverage Status](https://coveralls.io/repos/samuelmartineau/gulp-pdf-thumbnail/badge.svg?branch=master&service=github)](https://coveralls.io/github/samuelmartineau/gulp-pdf-thumbnail?branch=master)
-[![Dependency Status](https://david-dm.org/samuelmartineau/gulp-pdf-thumbnail.svg)](https://david-dm.org/samuelmartineau/gulp-pdf-thumbnail)
+[![Build Status](https://travis-ci.org/samuelmartineau/merry-crosstmas.svg?branch=master)](https://travis-ci.org/samuelmartineau/merry-crosstmas)
+[![Coverage Status](https://coveralls.io/repos/samuelmartineau/merry-crosstmas/badge.svg?branch=master&service=github)](https://coveralls.io/github/samuelmartineau/merry-crosstmas?branch=master)
+[![Dependency Status](https://david-dm.org/samuelmartineau/merry-crosstmas.svg)](https://david-dm.org/samuelmartineau/merry-crosstmas)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 ## Dev dependencies

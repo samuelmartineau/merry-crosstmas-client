@@ -4,7 +4,9 @@
   "description": "Random cross-friends designation of who offers gifts to who",
   "main": "gulpfile.js",
   "scripts": {
-    "quality": "gulp quality"
+    "dev": "gulp dev",
+    "quality": "gulp quality",
+    "coveralls": "istanbul cover tape -R spec ./tests/**/*.js"
   },
   "repository": {
     "type": "git",
@@ -29,6 +31,7 @@
   "devDependencies": {
     "browser-sync": "^2.9.6",
     "browserify": "^11.2.0",
+    "coveralls": "^2.11.4",
     "del": "^2.0.2",
     "fs": "0.0.2",
     "gulp": "^3.9.0",
@@ -44,6 +47,7 @@
     "gulp-tape": "0.0.3",
     "gulp-uglify": "^1.4.1",
     "gulp-util": "^3.0.6",
+    "istanbul": "^0.3.21",
     "jade": "^1.11.0",
     "js-yaml": "^3.4.2",
     "path": "^0.12.7",
