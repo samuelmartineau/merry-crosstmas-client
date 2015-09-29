@@ -5,4 +5,4 @@ before_script:
   - npm install -g npm
 script: "npm run coveralls"
 # Send coverage data to Coveralls
-after_script: "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
+after_script: "cat ./coverage/lcov.info | coveralls"
