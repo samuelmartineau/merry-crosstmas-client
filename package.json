@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "gulp dev",
     "quality": "gulp quality",
-    "coveralls": "node_modules/.bin/istanbul cover node_modules/.bin/tape -R spec ./tests/**/*.js"
+    "coveralls": "istanbul cover node_modules/.bin/tape -R spec ./tests/**/*.js"
   },
   "repository": {
     "type": "git",
