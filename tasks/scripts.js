@@ -8,7 +8,7 @@ var uglify = require('gulp-uglify');
 var plumber = require('gulp-plumber');
 var gIf = require('gulp-if');
 
-gulp.task('scripts', ['verify'], function() {
+gulp.task('scripts', function() {
     return gulp.src(config.getScripts())
         .pipe(plumber(config.plumber))
         .pipe(concat(config.scriptName))

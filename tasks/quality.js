@@ -3,8 +3,9 @@ var path = require('path');
 var config = require('../config');
 var gulpSassLint = require('gulp-sass-lint');
 var eslint = require('gulp-eslint');
+var gIf = require('gulp-if');
 
-gulp.task('quality', ['style-lint']);
+gulp.task('quality', ['scripts', 'style-lint']);
 
 function isAppScript(file) {
     return file.path.indexOf('node_modules') < 0;

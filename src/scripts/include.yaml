@@ -1,3 +1,6 @@
 - ../node_modules/smoothscroll/smoothscroll.js
 
+- scripts/utils.js
 - scripts/main.js
+
+- scripts/models/contact.js

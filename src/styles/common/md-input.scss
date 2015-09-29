@@ -80,6 +80,23 @@
     pointer-events: none;
     opacity: .5;
   }
+
+  .valid {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 50%;
+    right: 0;
+    margin: auto;
+    display: none;
+  }
+
+  &.show {
+    .valid {
+      display: block;
+    }
+  }
+
 }
 
 @-webkit-keyframes inputlighter {
