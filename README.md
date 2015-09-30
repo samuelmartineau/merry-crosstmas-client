@@ -20,7 +20,7 @@ npm i
 ## Developement
 
 ```
-npm dev
+npm run dev
 ```
 
 ## Hooks
