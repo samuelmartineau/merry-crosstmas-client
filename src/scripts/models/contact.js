@@ -1,5 +1,4 @@
-var findById = require('../utils').findById;
-var validateEmail = require('../utils').validateEmail;
+var utils = require('../utils');
 
 var ContactModel = function(globalWindow) {
     'use strict';
@@ -26,17 +25,19 @@ var ContactModel = function(globalWindow) {
             mail: '',
             id: ++currentId
         });
-        self.trigger('add');
+    };
+
+    self.remove = function(id) {
+        self.contacts.splice(utils.findIndex(self.contacts, id), 1);
+        self.trigger('remove', id);
     };
 
     self.editName = function(id, value) {
-        findById(self.contacts, id).name = value;
-        self.trigger('edit');
+        utils.findById(self.contacts, id).name = value;
     };
 
     self.editMail = function(id, value) {
-        findById(self.contacts, id).mail = value;
-        self.trigger('edit');
+        utils.findById(self.contacts, id).mail = value;
     };
 
     self.send = function() {
@@ -48,7 +49,7 @@ var ContactModel = function(globalWindow) {
     // Private methods
     function isValid() {
         return self.contacts.every(function(contact) {
-            var valid = contact.name.length > 0 && validateEmail(contact.mail);
+            var valid = contact.name.length > 0 && utils.validateEmail(contact.mail);
             if (!valid) {
                 self.trigger('error', contact.id);
             }

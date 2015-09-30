@@ -1,6 +1,6 @@
 var gulp = require('gulp');
 var path = require('path');
-var config = require('../config');
+var config = require('../config/config');
 var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
 

@@ -40,10 +40,13 @@
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.0.2",
     "gulp-concat": "^2.6.0",
+    "gulp-consolidate": "^0.1.2",
     "gulp-eslint": "^1.0.0",
+    "gulp-iconfont": "^5.0.0",
     "gulp-if": "^1.2.5",
     "gulp-jade": "^1.1.0",
     "gulp-plumber": "^1.0.1",
+    "gulp-rename": "^1.2.2",
     "gulp-riot": "^0.3.0",
     "gulp-sass": "^2.0.4",
     "gulp-sass-lint": "^1.0.1",
@@ -53,6 +56,7 @@
     "istanbul": "^0.3.21",
     "jade": "^1.11.0",
     "js-yaml": "^3.4.2",
+    "lodash": "^3.10.1",
     "path": "^0.12.7",
     "pre-commit": "^1.1.1",
     "require-dir": "^0.3.0",
@@ -62,6 +66,7 @@
     "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {
+    "qwest": "^2.1.0",
     "smoothscroll": "^0.2.1"
   },
   "pre-commit": [

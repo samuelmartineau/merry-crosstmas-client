@@ -3,10 +3,15 @@
 @import 'common/variables';
 @import 'common/common';
 @import 'common/md-input';
+@import 'common/badge';
 
 // TAGS
 @import 'tags/card';
+@import 'tags/contact-control';
 
 // PARTIALS
 @import 'partials/header';
 @import 'partials/footer';
+
+// ICONS
+@import 'common/iconfont';

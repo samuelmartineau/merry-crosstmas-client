@@ -1,6 +1,6 @@
 var gulp = require('gulp');
 var path = require('path');
-var config = require('../config');
+var config = require('../config/config');
 var gulpSassLint = require('gulp-sass-lint');
 var eslint = require('gulp-eslint');
 var gIf = require('gulp-if');
@@ -19,7 +19,7 @@ gulp.task('lint', function () {
 });
 
 gulp.task('style-lint', function() {
-    return gulp.src(path.join(config.src, 'styles', '**', '*.s+(a|c)ss'))
+    return gulp.src([path.join(config.src, 'styles', '**', '*.s+(a|c)ss'), path.join('!' + config.src, 'styles', 'common' ,'iconfont.s+(a|c)ss')])
         .pipe(gulpSassLint({
           config: '.sass-lint.yml'
         }))

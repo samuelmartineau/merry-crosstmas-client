@@ -1,7 +1,7 @@
 var gulp = require('gulp');
 var browserSync = require('browser-sync');
 var path = require('path');
-var config = require('../config');
+var config = require('../config/config');
 var reload = browserSync.reload;
 
 gulp.task('serve', ['build'], function() {

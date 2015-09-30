@@ -47,3 +47,5 @@ node_modules
 
 ### generated ###
 dist
+src/assets/fonts
+src/styles/common/iconfont.scss

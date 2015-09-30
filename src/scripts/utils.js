@@ -34,6 +34,16 @@
          throw 'Couldn\'t find object with id: ' + id;
      },
 
+     findIndex: function(source, id, i) {
+         'use strict';
+         for (i = 0; i < source.length; i++) {
+             if (source[i].id === id) {
+                 return i;
+             }
+         }
+         throw 'Couldn\'t find object with id: ' + id;
+     },
+
      validateEmail: function(email) {
          'use strict';
          var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;

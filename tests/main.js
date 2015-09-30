@@ -1,5 +1,5 @@
 var test = require('tape');
-var config = require('../config');
+var config = require('../config/config');
 var riot = require('riot');
 var ContactModel = require('../src/scripts/models/contact.js');
 

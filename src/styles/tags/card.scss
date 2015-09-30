@@ -2,6 +2,20 @@
   background: $COLOR_WHITE;
   margin: 1em 0;
   box-shadow: $shadow-card;
-  overflow: hidden;
   padding: 1.4rem;
+  position: relative;
+
+  &__remove {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px;
+    font-size: 10px;
+    color: $COLOR_GREY_LIGHT;
+    cursor: pointer;
+
+    &:hover {
+      background: rgba($COLOR_GREY_LIGHT, .2);
+    }
+  }
 }

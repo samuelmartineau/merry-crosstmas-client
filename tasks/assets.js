@@ -1,6 +1,6 @@
 var gulp = require('gulp');
 var path = require('path');
-var config = require('../config');
+var config = require('../config/config');
 
 gulp.task('assets', function() {
 	return gulp.src(path.join(config.src, 'assets', '**'))

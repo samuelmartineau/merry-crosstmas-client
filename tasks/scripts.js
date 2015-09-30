@@ -1,6 +1,6 @@
 var gulp = require('gulp');
 var path = require('path');
-var config = require('../config');
+var config = require('../config/config');
 var fs = require('fs');
 var gutil = require('gulp-util');
 var concat = require('gulp-concat');

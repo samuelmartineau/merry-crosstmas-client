@@ -1,7 +1,17 @@
 contacts-list
   .contact-list
-    contact(each='{contactModel.contacts}' data='{this}')
+    contact(each='{contact in contactModel.contacts}' contact='{contact}')
 
-    button(onclick='{contactModel.add}') Add Friend
+  .contact-control
+    .contact-control__cell
+      i.badge.icon.icon-group(onclick='{contactModel.add}')
 
-    button(onclick='{contactModel.send}') Send Mails
+    .contact-control__cell
+      i.badge.icon.icon-paper(onclick='{contactModel.send}')
+
+  script.
+    var self = this;
+
+    contactModel.on('remove', function(id){
+      self.update();
+    })

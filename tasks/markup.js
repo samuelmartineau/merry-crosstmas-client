@@ -1,5 +1,5 @@
 var gulp = require('gulp');
-var config = require('../config');
+var config = require('../config/config');
 var riot = require('gulp-riot');
 var path = require('path');
 var jade = require('gulp-jade');
