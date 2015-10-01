@@ -1,13 +1,14 @@
 {
   "name": "merry-crosstmas",
   "version": "0.0.1",
-  "description": "Random cross-friends designation of who offers gifts to who",
+  "description": "Receive an email for doing Secret Santa with your friends",
   "main": "gulpfile.js",
   "engines": {
     "npm": "~4.0.0"
   },
   "scripts": {
     "dev": "gulp dev",
+    "build": "gulp build",
     "quality": "gulp quality",
     "coveralls": "istanbul cover -x '**/utils.js' tape -R spec ./tests/**/*.js"
   },
@@ -19,7 +20,9 @@
     "christmass",
     "email",
     "friends",
-    "cross"
+    "cross",
+    "secret",
+    "santa"
   ],
   "author": {
     "name": "Samuel Martineau",
@@ -39,12 +42,12 @@
     "fs": "0.0.2",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.0.2",
-    "gulp-concat": "^2.6.0",
     "gulp-consolidate": "^0.1.2",
     "gulp-eslint": "^1.0.0",
     "gulp-iconfont": "^5.0.0",
     "gulp-if": "^1.2.5",
     "gulp-jade": "^1.1.0",
+    "gulp-minify-css": "^1.2.1",
     "gulp-plumber": "^1.0.1",
     "gulp-rename": "^1.2.2",
     "gulp-riot": "^0.3.0",
@@ -63,9 +66,14 @@
     "riot": "^2.2.4",
     "tap-spec": "^4.1.0",
     "tape": "^4.2.0",
-    "vinyl-source-stream": "^1.1.0"
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "gulp-imagemin": "^2.3.0",
+    "imagemin-mozjpeg": "^5.1.0",
+    "imagemin-pngquant": "^4.2.0"
   },
   "dependencies": {
+    "quill": "^0.20.0",
     "qwest": "^2.1.0",
     "smoothscroll": "^0.2.1"
   },

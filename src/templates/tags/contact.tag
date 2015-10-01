@@ -42,13 +42,11 @@ contact
     })
 
     removeContact() {
-      if (confirm('Are you sure to want to remove this one?')) {
-        contactModel.remove(self.opts.contact.id);
-      }
+      contactModel.remove(self.opts.contact.id);
     }
 
     contactModel.on('error', function(id){
-      if (self.id === id) {
+      if (self.opts.contact.id === id) {
         window.smoothScroll(self.root, 500, function(){console.log('end')});
       }
     })

@@ -7,7 +7,7 @@ var config = require('../config/config');
 var rename = require("gulp-rename");
 
 gulp.task('iconfont', function (cb) {
-    gulp.src([path.join(config.src, '/assets/icons/*.svg')])
+    gulp.src(path.join('config', 'icons', '*.svg'))
         .pipe(iconfont({
             fontName: config.iconfont.fontName,
             svg: true,
@@ -28,7 +28,7 @@ gulp.task('iconfont', function (cb) {
                 .pipe(rename(function(path) {
                     path.basename = 'iconfont';
                 }))
-                .pipe(gulp.dest(path.join(config.src, ('/styles/common/'))))
+                .pipe(gulp.dest(path.join(config.src, 'styles', 'common')))
         })
-        .pipe(gulp.dest(path.join(config.src, '/assets/fonts/')))
+        .pipe(gulp.dest(path.join(config.dist, 'assets','fonts')))
 });

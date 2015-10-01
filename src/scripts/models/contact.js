@@ -3,7 +3,9 @@ var utils = require('../utils');
 var ContactModel = function(globalWindow) {
     'use strict';
     var self = globalWindow.riot.observable(this),
-        currentId = 2;
+        currentId = 2,
+        parameters,
+        config;
 
     self.contacts = [{
         name: '',
@@ -42,19 +44,44 @@ var ContactModel = function(globalWindow) {
 
     self.send = function() {
         if (isValid()) {
-            // TODO send
+            parameters = {
+                contacts: self.contacts,
+                content: 'sam'
+            };
+            config = {
+                responseType: 'json',
+                timeout: 10000,
+                attempts: 1,
+                headers: {
+                    Authorization: 'Basic aW50ZXJjZWxsYXI6Q2F2ZVBhcmZhaXRl'
+                }
+            };
+            console.log('isvalid so send');
+            globalWindow.qwest.post('https://merrycrosstmas.herokuapp.com/send', parameters, config)
+                .then(function(xhr, response) {
+                    // Make some useful actions
+                    console.log(response);
+                })
+                .catch(function(xhr, response, e) {
+                    // Process the error
+                    console.log(e);
+                });
         }
     };
 
     // Private methods
     function isValid() {
-        return self.contacts.every(function(contact) {
+        var fieldsNotEmpty = self.contacts.every(function(contact) {
             var valid = contact.name.length > 0 && utils.validateEmail(contact.mail);
             if (!valid) {
                 self.trigger('error', contact.id);
             }
             return valid;
         });
+
+        var uniqMails = utils.uniq(self.contacts, 'mail');
+
+        return fieldsNotEmpty && uniqMails;
     }
 
 };

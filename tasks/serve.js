@@ -5,6 +5,7 @@ var config = require('../config/config');
 var reload = browserSync.reload;
 
 gulp.task('serve', ['build'], function() {
+
 	browserSync({
 		server: {
 			baseDir: config.dist
