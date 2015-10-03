@@ -22,13 +22,10 @@ gulp.task('iconfont', function (cb) {
                     fontPath: config.iconfont.fontPath,
                     className: config.iconfont.prefix
                 }))
-                .on('end',function() {
-                    cb();
-                })
                 .pipe(rename(function(path) {
                     path.basename = 'iconfont';
                 }))
                 .pipe(gulp.dest(path.join(config.src, 'styles', 'common')))
         })
-        .pipe(gulp.dest(path.join(config.dist, 'assets','fonts')))
+        .pipe(gulp.dest(path.join('config', 'fonts')))
 });

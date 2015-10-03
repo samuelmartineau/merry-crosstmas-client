@@ -12,14 +12,14 @@ function isAppScript(file) {
 }
 
 gulp.task('lint', function () {
-    return gulp.src(path.join(config.src, 'scripts', '**', '*.js'))
+    gulp.src(path.join(config.src, 'scripts', '**', '*.js'))
         .pipe(gIf(isAppScript, eslint())) // Exclude third part libraries from linting
         .pipe(eslint.format())
         .pipe(gIf(config.isProd, eslint.failOnError()));
 });
 
 gulp.task('style-lint', function() {
-    return gulp.src([path.join(config.src, 'styles', '**', '*.s+(a|c)ss'), path.join('!' + config.src, 'styles', 'common' ,'iconfont.s+(a|c)ss')])
+    gulp.src([path.join(config.src, 'styles', '**', '*.s+(a|c)ss'), path.join('!' + config.src, 'styles', 'common' ,'iconfont.s+(a|c)ss')])
         .pipe(gulpSassLint({
           config: '.sass-lint.yml'
         }))
@@ -28,7 +28,7 @@ gulp.task('style-lint', function() {
 });
 
 gulp.task('test', function () {
-    return gulp.src(path.join(config.test.directory, config.test.files))
+    gulp.src(path.join(config.test.directory, config.test.files))
         .pipe(tape({
             reporter: tapSpec()
         }));

@@ -51,13 +51,10 @@ var ContactModel = function(globalWindow) {
             config = {
                 responseType: 'json',
                 timeout: 10000,
-                attempts: 1,
-                headers: {
-                    Authorization: 'Basic aW50ZXJjZWxsYXI6Q2F2ZVBhcmZhaXRl'
-                }
+                attempts: 1
             };
             console.log('isvalid so send');
-            globalWindow.qwest.post('https://merrycrosstmas.herokuapp.com/send', parameters, config)
+            globalWindow.qwest.post('/send', parameters, config)
                 .then(function(xhr, response) {
                     // Make some useful actions
                     console.log(response);

@@ -7,11 +7,11 @@
     "npm": "~4.0.0"
   },
   "scripts": {
-    "dev": "gulp dev",
-    "build": "gulp build",
+    "dev": "gulp iconfont && gulp dev",
+    "build": "gulp iconfont && gulp build",
     "quality": "gulp quality",
     "coveralls": "istanbul cover -x '**/utils.js' tape -R spec ./tests/**/*.js",
-    "deploy": "gulp deploy"
+    "deploy": "gulp build && gulp deploy"
   },
   "repository": {
     "type": "git",
@@ -47,6 +47,7 @@
     "gulp-eslint": "^1.0.0",
     "gulp-iconfont": "^5.0.0",
     "gulp-if": "^1.2.5",
+    "gulp-imagemin": "^2.3.0",
     "gulp-jade": "^1.1.0",
     "gulp-minify-css": "^1.2.1",
     "gulp-plumber": "^1.0.1",
@@ -54,9 +55,12 @@
     "gulp-riot": "^0.3.0",
     "gulp-sass": "^2.0.4",
     "gulp-sass-lint": "^1.0.1",
+    "gulp-sourcemaps": "^1.6.0",
     "gulp-tape": "0.0.3",
     "gulp-uglify": "^1.4.1",
     "gulp-util": "^3.0.6",
+    "imagemin-mozjpeg": "^5.1.0",
+    "imagemin-pngquant": "^4.2.0",
     "istanbul": "^0.3.21",
     "jade": "^1.11.0",
     "js-yaml": "^3.4.2",
@@ -65,13 +69,11 @@
     "pre-commit": "^1.1.1",
     "require-dir": "^0.3.0",
     "riot": "^2.2.4",
+    "run-sequence": "^1.1.4",
     "tap-spec": "^4.1.0",
     "tape": "^4.2.0",
     "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0",
-    "gulp-imagemin": "^2.3.0",
-    "imagemin-mozjpeg": "^5.1.0",
-    "imagemin-pngquant": "^4.2.0"
+    "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {
     "gulp-git": "^1.5.0",

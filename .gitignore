@@ -47,5 +47,5 @@ node_modules
 
 ### generated ###
 dist
-src/assets/fonts
+config/fonts
 src/styles/common/iconfont.scss

@@ -43,9 +43,11 @@ rte
       var quill = new Quill('#editor-container', {
         modules: { toolbar: '#formatting-container' }
       });
+      
       quill.on('selection-change', function(range) {
         console.log('selection-change', range)
       });
+      
       quill.on('text-change', function(delta, source) {
         console.log('text-change', delta, source)
       });

@@ -3,37 +3,20 @@ var git = require('gulp-git');
 var path = require('path');
 var config = require('../config/config');
 
-gulp.task('git', ['init', 'add', 'commit', 'push']);
-
-// Run git init
-// src is the root folder for git to initialize
-gulp.task('init', function(){
-  return gulp.src(path.join(config.dist, '**', '*'))
+gulp.task('git', function(){
+  gulp.src(path.join(config.dist))
     .pipe(git.init(function (err) {
       if (err) throw err;
-    }));
-});
-
-// Run git add
-// src is the file(s) to add (or ./*)
-gulp.task('add', function(){
-  return gulp.src(path.join(config.dist, '**', '*'))
-    .pipe(git.add());
-});
-
-// Run git commit without checking for a message using raw arguments
-gulp.task('commit', function(){
-  return gulp.src(path.join(config.dist, '**', '*'))
+    }))
+    .pipe(git.addRemote('origin', 'https://github.com/samuelmartineau/merry-crosstmas.git', function (err) {
+      if (err) throw err;
+    }))
+    .pipe(git.add({args: '-A -v'}))
     .pipe(git.commit(undefined, {
       args: '-m "release"',
       disableMessageRequirement: true
+    }))
+    .pipe(git.push('origin', 'master', {args: " -f"}, function (err) {
+      if (err) throw err;
     }));
-});
-
-// Run git push with options
-// branch is the remote branch to push to
-gulp.task('push', function(){
-  git.push('origin', 'master', {args: " -f"}, function (err) {
-    if (err) throw err;
-  });
 });

@@ -4,7 +4,7 @@ var path = require('path');
 var config = require('../config/config');
 var reload = browserSync.reload;
 
-gulp.task('serve', ['build'], function() {
+gulp.task('serve', function() {
 
 	browserSync({
 		server: {

@@ -7,7 +7,7 @@ var autoprefixer = require('gulp-autoprefixer');
 var minifyCss = require('gulp-minify-css');
 
 gulp.task('styles', function() {
-	return gulp.src(path.join(config.src, 'styles', 'main.scss'))
+		gulp.src(path.join(config.src, 'styles', 'main.scss'))
 		.pipe(sass().on('error', sass.logError))
 		.pipe(autoprefixer({
 			browsers: ['ie >= 9', 'last 2 versions']

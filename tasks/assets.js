@@ -5,12 +5,19 @@ var imagemin = require('gulp-imagemin');
 var pngquant = require('imagemin-pngquant');
 var mozjpeg = require('imagemin-mozjpeg');
 var gIf = require('gulp-if');
+var runSequence = require('run-sequence');
 
-gulp.task('assets', ['images', 'favicon']);
+gulp.task('assets', function(){
+  runSequence(
+    'images',
+    'favicon',
+    'fonts'
+	);
+});
 
 
 gulp.task('images', function() {
-    return gulp.src(path.join(config.src, 'assets', 'images', '**', '*'))
+    gulp.src(path.join(config.src, 'assets', 'images', '**', '*'))
         .pipe(gIf(config.isProd, imagemin({
             progressive: true,
             svgoPlugins: [{
@@ -24,6 +31,11 @@ gulp.task('images', function() {
 });
 
 gulp.task('favicon', function() {
-    return gulp.src(path.join(config.src, 'assets', '*.ico'))
+    gulp.src(path.join(config.src, 'assets', '*.ico'))
         .pipe(gulp.dest(path.join(config.dist, 'assets')));
+});
+
+gulp.task('fonts', function() {
+    gulp.src(path.join('config', 'fonts', '*'))
+        .pipe(gulp.dest(path.join(config.dist, 'assets', 'fonts')));
 });

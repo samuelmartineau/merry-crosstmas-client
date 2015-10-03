@@ -7,7 +7,7 @@ var jade = require('gulp-jade');
 var uglify = require('gulp-uglify');
 
 gulp.task('riot', function() {
-	gulp.src(path.join(config.src, 'templates', 'tags', '*.tag'))
+	gulp.src(path.join(config.src, 'templates', 'tags', '*.jade'))
 		.pipe(riot({
       compact: config.isProd,
       template: 'jade'
