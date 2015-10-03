@@ -14,3 +14,5 @@ gulp.task('dev', ['serve']);
 gulp.task('build', ['clean', 'quality', 'iconfont', 'assets', 'scripts', 'styles', 'riot', 'template']);
 
 gulp.task('quality', ['test', 'lint', 'style-lint']);
+
+gulp.task('deploy', ['build', 'git']);

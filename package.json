@@ -10,7 +10,8 @@
     "dev": "gulp dev",
     "build": "gulp build",
     "quality": "gulp quality",
-    "coveralls": "istanbul cover -x '**/utils.js' tape -R spec ./tests/**/*.js"
+    "coveralls": "istanbul cover -x '**/utils.js' tape -R spec ./tests/**/*.js",
+    "deploy": "gulp deploy"
   },
   "repository": {
     "type": "git",
@@ -73,6 +74,7 @@
     "imagemin-pngquant": "^4.2.0"
   },
   "dependencies": {
+    "gulp-git": "^1.5.0",
     "quill": "^0.20.0",
     "qwest": "^2.1.0",
     "smoothscroll": "^0.2.1"
