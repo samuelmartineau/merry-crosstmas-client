@@ -1,5 +1,5 @@
 {
-  "name": "merry-crosstmas",
+  "name": "merry-crosstmas-client",
   "version": "0.0.1",
   "description": "Receive an email for doing Secret Santa with your friends",
   "main": "gulpfile.js",
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/samuelmartineau/merry-crosstmas.git"
+    "url": "git+https://github.com/samuelmartineau/merry-crosstmas-client.git"
   },
   "keywords": [
     "christmass",
@@ -31,9 +31,9 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/samuelmartineau/merry-crosstmas/issues"
+    "url": "https://github.com/samuelmartineau/merry-crosstmas-client/issues"
   },
-  "homepage": "https://github.com/samuelmartineau/merry-crosstmas#readme",
+  "homepage": "https://github.com/samuelmartineau/merry-crosstmas-client#readme",
   "devDependencies": {
     "browser-sync": "^2.9.6",
     "browserify": "^11.2.0",
