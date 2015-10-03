@@ -7,6 +7,8 @@ var ContactModel = function(globalWindow) {
         parameters,
         config;
 
+    self.content = '';
+
     self.contacts = [{
         name: '',
         mail: '',
@@ -42,18 +44,23 @@ var ContactModel = function(globalWindow) {
         utils.findById(self.contacts, id).mail = value;
     };
 
+    self.editContent = function(newContent) {
+        self.content = newContent;
+    };
+
+
     self.send = function() {
         if (isValid()) {
             parameters = {
                 contacts: self.contacts,
-                content: 'sam'
+                content: self.content
             };
             config = {
                 responseType: 'json',
                 timeout: 10000,
                 attempts: 1
             };
-            console.log('isvalid so send');
+
             globalWindow.qwest.post('/send', parameters, config)
                 .then(function(xhr, response) {
                     // Make some useful actions

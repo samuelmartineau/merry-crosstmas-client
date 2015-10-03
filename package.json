@@ -34,7 +34,7 @@
   "bugs": {
     "url": "https://github.com/samuelmartineau/merry-crosstmas-client/issues"
   },
-  "homepage": "https://github.com/samuelmartineau/merry-crosstmas-client#readme",
+  "homepage": "merrycrosstmas.herokuapp.com",
   "devDependencies": {
     "browser-sync": "^2.9.6",
     "browserify": "^11.2.0",

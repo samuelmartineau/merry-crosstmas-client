@@ -33,7 +33,7 @@ rte
           b 20$
         div
           br
-        div You have to find a gift for $friend$, good luck :)
+        div You have to find a gift for @friend, good luck :)
         div
           br
         div See you at the end of the year
@@ -43,12 +43,11 @@ rte
       var quill = new Quill('#editor-container', {
         modules: { toolbar: '#formatting-container' }
       });
+
+      // Update our content with basic editor's
+      quill.on('text-change', window.utils.debounce(function(delta, source) {
+          var content = this.getHTML();
+          contactModel.editContent(content);
+      }, 300));
       
-      quill.on('selection-change', function(range) {
-        console.log('selection-change', range)
-      });
-      
-      quill.on('text-change', function(delta, source) {
-        console.log('text-change', delta, source)
-      });
-    })
+    });

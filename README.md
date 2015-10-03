@@ -1,7 +1,7 @@
-# merry-crosstmas
+# merry-crosstmas-client
 
-[![Build Status](https://travis-ci.org/samuelmartineau/merry-crosstmas.svg?branch=dev)](https://travis-ci.org/samuelmartineau/merry-crosstmas-client)
-[![Coverage Status](https://coveralls.io/repos/samuelmartineau/merry-crosstmas/badge.svg?branch=dev&service=github)](https://coveralls.io/github/samuelmartineau/merry-crosstmas-client?branch=dev)
+[![Build Status](https://travis-ci.org/samuelmartineau/merry-crosstmas.svg?branch=dev)](https://travis-ci.org/samuelmartineau/merry-crosstmas-client?branch=dev)
+[![Coverage Status](https://coveralls.io/repos/samuelmartineau/merry-crosstmas-client/badge.svg?branch=dev&service=github)](https://coveralls.io/github/samuelmartineau/merry-crosstmas-client?branch=dev)
 [![Dependency Status](https://david-dm.org/samuelmartineau/merry-crosstmas.svg)](https://david-dm.org/samuelmartineau/merry-crosstmas-client)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 

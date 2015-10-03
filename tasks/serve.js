@@ -12,7 +12,7 @@ gulp.task('serve', function() {
 		}
 	});
 
-  	gulp.watch(path.join(config.src, 'templates', 'tags', '*.tag'), ['riot']);
+  	gulp.watch(path.join(config.src, 'templates', 'tags', '*.jade'), ['riot']);
   	gulp.watch(path.join(config.src, 'templates', '**', '*.jade'), ['template']);
 		gulp.watch(path.join(config.src, 'styles', '**', '*.scss'), ['style-lint', 'styles']);
 		gulp.watch(path.join(config.src, 'scripts', '**', '*.js'), ['lint', 'scripts']);
