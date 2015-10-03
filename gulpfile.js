@@ -21,7 +21,7 @@ gulp.task('build', function() {
 	runSequence(
     'clean',
     'quality',
-		['assets',  'riot', 'template', 'scripts'],
+		['assets', 'riot', 'template', 'scripts'],
 		'styles'
 	);
 });
