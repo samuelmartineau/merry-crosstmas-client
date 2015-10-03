@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var git = require('gulp-git');
 var path = require('path');
+var config = require('../config/config');
 
 gulp.task('git', ['init', 'add', 'commit', 'push']);
 
