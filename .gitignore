@@ -49,3 +49,4 @@ node_modules
 dist
 config/fonts
 src/styles/common/iconfont.scss
+.publish

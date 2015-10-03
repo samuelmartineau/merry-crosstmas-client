@@ -11,7 +11,7 @@
     "build": "gulp iconfont && gulp build",
     "quality": "gulp quality",
     "coveralls": "istanbul cover -x '**/utils.js' tape -R spec ./tests/**/*.js",
-    "deploy": "gulp build && gulp deploy"
+    "deploy": "npm run build && gulp deploy"
   },
   "repository": {
     "type": "git",
@@ -45,6 +45,7 @@
     "gulp-autoprefixer": "^3.0.2",
     "gulp-consolidate": "^0.1.2",
     "gulp-eslint": "^1.0.0",
+    "gulp-gh-pages": "^0.5.2",
     "gulp-iconfont": "^5.0.0",
     "gulp-if": "^1.2.5",
     "gulp-imagemin": "^2.3.0",

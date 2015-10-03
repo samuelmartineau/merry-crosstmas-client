@@ -32,9 +32,4 @@ gulp.task('quality', function() {
 	);
 });
 
-gulp.task('deploy', function() {
-  runSequence(
-    'build',
-    'git'
-	);
-});
+gulp.task('deploy', ['git']);
