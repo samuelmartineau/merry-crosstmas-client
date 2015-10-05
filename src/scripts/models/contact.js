@@ -128,7 +128,7 @@ var ContactModel = function(globalWindow) {
                 errors.push(index);
             }
         });
-        if (errors.length === 1) {
+        if (errors.length === 1 && utils.validateEmail(self.contacts[errors[0]].mail.value)) {
             self.contacts[errors[0]].mail.valid = true;
         }
     }
