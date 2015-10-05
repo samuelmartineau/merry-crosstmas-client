@@ -13,15 +13,15 @@ test('[Test ContactModel]', function(t) {
     contactModel.add();
     t.true(function(){
       var hasGoodSize = contactModel.contacts.length === 3;
-      var hasGoodContent = contactModel[2].name === '' && contactModel[2].mail === '';
+      var hasGoodContent = contactModel[2].name.value === '' && contactModel[2].mail.value === '';
       return hasGoodSize && hasGoodContent;
     }, 'ContactModel.add should add a contact');
 
     contactModel.editName(0, 'test');
-    t.true(contactModel.contacts[0].name === 'test', 'ContactModel.editName should edit the name of contact (id)');
+    t.true(contactModel.contacts[0].name.value === 'test', 'ContactModel.editName should edit the name of contact (id)');
 
     contactModel.editMail(0, 'test@mail.fr');
-    t.true(contactModel.contacts[0].mail === 'test@mail.fr', 'ContactModel.editMail should edit the mail of contact (id)');
+    t.true(contactModel.contacts[0].mail.value === 'test@mail.fr', 'ContactModel.editMail should edit the mail of contact (id)');
 
     contactModel.remove(0);
     t.true(contactModel.contacts[0].id != 0 && contactModel.contacts.length === 3, 'ContactModel.remove should remove the contact with (id)');

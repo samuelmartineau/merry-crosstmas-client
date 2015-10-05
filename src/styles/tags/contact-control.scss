@@ -5,4 +5,11 @@
   &__cell {
     display: table-cell;
   }
+
+  .invalid {
+    i {
+      background: $COLOR_GREY_LIGHT;
+      color: $COLOR_GREY_1;
+    }
+  }
 }

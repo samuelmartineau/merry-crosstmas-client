@@ -1,93 +1,137 @@
 var utils = require('../utils');
+var Promise = require('promise');
 
 var ContactModel = function(globalWindow) {
     'use strict';
     var self = globalWindow.riot.observable(this),
-        currentId = 2,
+        currentId = 0,
+        contactMinimum = 3,
+        config = {
+            responseType: 'json',
+            timeout: 10000,
+            attempts: 1
+        },
+        defaultContact = {
+            name: {
+                value: '',
+                edited: false,
+                valid: false
+            },
+            mail: {
+                value: '',
+                edited: false,
+                valid: false
+            }
+        },
+        errors,
         parameters,
-        config;
+        currentContact,
+        mails,
+        previous;
 
+    // minimum of contacts
+    self.minimum = contactMinimum;
+
+    // array of contacts name + mail
+    self.contacts = [];
+
+    // html mail content string
     self.content = '';
 
-    self.contacts = [{
-        name: '',
-        mail: '',
-        id: 0
-    }, {
-        name: '',
-        mail: '',
-        id: 1
-    }, {
-        name: '',
-        mail: '',
-        id: 2
-    }];
+    // init first contacts
+    Array.apply(null, Array(contactMinimum)).forEach(function() {
+        currentContact = JSON.parse(JSON.stringify(defaultContact));
+        currentContact.id = currentId++;
+        self.contacts.push(currentContact);
+    });
 
     self.add = function() {
-        self.contacts.push({
-            name: '',
-            mail: '',
-            id: ++currentId
-        });
+        currentContact = JSON.parse(JSON.stringify(defaultContact));
+        currentContact.id = currentId++;
+        self.contacts.push(currentContact);
+        self.trigger('add');
     };
 
     self.remove = function(id) {
+        currentContact = utils.findById(self.contacts, id).mail;
         self.contacts.splice(utils.findIndex(self.contacts, id), 1);
+        cleanMails(currentContact.value);
         self.trigger('remove', id);
     };
 
     self.editName = function(id, value) {
-        utils.findById(self.contacts, id).name = value;
+        currentContact = utils.findById(self.contacts, id).name;
+        currentContact.value = value;
+        currentContact.edited = true;
+        currentContact.valid = value.length > 0;
+        self.trigger('nameUpdated');
     };
 
     self.editMail = function(id, value) {
-        utils.findById(self.contacts, id).mail = value;
+        currentContact = utils.findById(self.contacts, id).mail;
+        previous = currentContact.value;
+        currentContact.value = value;
+        currentContact.edited = true;
+        currentContact.valid = updateMails(value, id);
+        cleanMails(previous);
+        self.trigger('mailsUpdated');
     };
 
     self.editContent = function(newContent) {
         self.content = newContent;
     };
 
+    self.isValid = function() {
+        mails = [];
+        return self.contacts.every(function(contact) {
+            errors = contact.name.value.length > 0 && utils.validateEmail(contact.mail.value) && mails.indexOf(contact.mail.value) === -1;
+            mails.push(contact.mail.value);
+            return errors;
+        });
+    };
 
     self.send = function() {
-        if (isValid()) {
+        if (self.isValid()) {
             parameters = {
                 contacts: self.contacts,
                 content: self.content
             };
-            config = {
-                responseType: 'json',
-                timeout: 10000,
-                attempts: 1
-            };
 
-            globalWindow.qwest.post('/send', parameters, config)
-                .then(function(xhr, response) {
-                    // Make some useful actions
-                    console.log(response);
-                })
-                .catch(function(xhr, response, e) {
-                    // Process the error
-                    console.log(e);
-                });
+            return new Promise(function(resolve, reject) {
+                globalWindow.qwest.post('/send', parameters, config)
+                    .then(function(data) {
+                        return resolve(data);
+                    })
+                    .catch(function(e, url) {
+                        return reject(e, url);
+                    });
+            });
         }
     };
 
     // Private methods
-    function isValid() {
-        var fieldsNotEmpty = self.contacts.every(function(contact) {
-            var valid = contact.name.length > 0 && utils.validateEmail(contact.mail);
-            if (!valid) {
-                self.trigger('error', contact.id);
+    function updateMails(mail, id) {
+        errors = false;
+        self.contacts.forEach(function(contact) {
+            if (contact.mail.value === mail && contact.id !== id) {
+                errors = true;
+                contact.mail.valid = false;
             }
-            return valid;
         });
-
-        var uniqMails = utils.uniq(self.contacts, 'mail');
-
-        return fieldsNotEmpty && uniqMails;
+        return utils.validateEmail(mail) && !errors;
     }
 
+    function cleanMails(mail) {
+        errors = [];
+        self.contacts.forEach(function(contact, index) {
+            if (contact.mail.value === mail) {
+                errors.push(index);
+            }
+        });
+        if (errors.length === 1) {
+            self.contacts[errors[0]].mail.valid = true;
+        }
+    }
 };
 
 module.exports = ContactModel;

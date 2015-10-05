@@ -9,7 +9,11 @@
   text-align: center;
   border-radius: 100%;
   box-shadow: $shadow-card;
-  background: $COLOR_PRIMARY no-repeat center center;
+  background: $COLOR_PRIMARY;
   color: $COLOR_WHITE;
   transition: background .3s ease;
+
+  &:hover {
+    background: darken($COLOR_PRIMARY, 20%);
+  }
 }

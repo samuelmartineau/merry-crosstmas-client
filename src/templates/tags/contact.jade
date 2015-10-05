@@ -1,38 +1,39 @@
 contact
-  .card
+  .card(class='{ is-removing: isRemoving}')
     i.card__remove(if='{contactModel.contacts.length > 3}' onclick='{ removeContact }') Remove
-    .md-input(class='{ show: nameValid }')
+    .md-input(class='{ valid: contact.name.edited && contact.name.valid, error: contact.name.edited && !contact.name.valid }')
       input(type="text" required onkeyup='{ changeName }')
       span.highlight
       span.bar
       label Name
-      i.valid.icon.icon-check
-    .md-input(class='{ show: validMail }')
+      i.icon.icon-check
+    .md-input(class='{ valid: contact.mail.edited && contact.mail.valid, error: contact.mail.edited && !contact.mail.valid }')
       input(type="text" required onkeyup='{ changeMail }')
       span.highlight
       span.bar
       label Mail
-      i.valid.icon.icon-check
+      i.icon.icon-check
 
   script.
+    this.previousMail;
+    
     changeName = window.utils.debounce(function(e) {
-        var value = e.target.value;
-        contactModel.editName(this.opts.contact.id, value);
-        this.nameValid = value.length > 0;
+        contactModel.editName(this.opts.contact.id, e.target.value);
         this.update();
     }, 300);
 
     changeMail = window.utils.debounce(function(e) {
-        var value = e.target.value;
-        contactModel.editMail(this.opts.contact.id, value);
-        this.validMail = window.utils.validateEmail(value);
+      if(this.previousMail !== e.target.value){
+        this.previousMail = e.target.value
+        contactModel.editMail(this.opts.contact.id, e.target.value);
         this.update();
+      }
     }, 300);
 
     var self = this;
     this.on('mount', function(){
       var lastElement = contactModel.contacts[contactModel.contacts.length-1];
-      if (contactModel.contacts.length > 3 && self.opts.contact.id === lastElement.id) {
+      if (contactModel.contacts.length > contactModel.minimum && self.opts.contact.id === lastElement.id) {
         // DOM is not render when on mount event is triggered and isMounted is true
         // https://github.com/riot/riot/issues/1033
         setTimeout(function(){
@@ -41,12 +42,37 @@ contact
       }
     })
 
-    removeContact() {
-      contactModel.remove(self.opts.contact.id);
-    }
-
     contactModel.on('error', function(id){
       if (self.opts.contact.id === id) {
         window.smoothScroll(self.root, 500, function(){console.log('end')});
       }
     })
+    
+    // Remove contact
+    var cardHeight,
+        id, 
+        elme, 
+        cb;
+    
+    function frame() {
+      cardHeight = cardHeight - 10;
+      elem.style.height = cardHeight + 'px';
+      if (cardHeight < 0) { 
+        elem.style.height = '0';
+        elem.style.padding = '0';
+        elem.style.margin = '0';
+        clearInterval(id);
+        cb();
+      }
+    }
+    
+    removeContact(e) {
+        this.isRemoving = true;
+        cardHeight = this.root.firstElementChild.offsetHeight;
+        id = setInterval(frame, 10);
+        cb = function(){
+          contactModel.remove(self.opts.contact.id);
+        };
+        elem = this.root.firstElementChild;
+        frame(elem, cardHeight);
+    }

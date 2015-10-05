@@ -6,12 +6,40 @@ contacts-list
     .contact-control__cell
       i.badge.icon.icon-group(onclick='{contactModel.add}')
 
-    .contact-control__cell
-      i.badge.icon.icon-paper(onclick='{contactModel.send}')
+    .contact-control__cell(class='{ invalid: !isSendable }')
+      i.badge.icon.icon-paper(onclick='{sendMails}')
 
   script.
     var self = this;
+    
+    self.isSendable = contactModel.isValid();
 
-    contactModel.on('remove', function(id){
+    contactModel.on('remove', function(){
+      self.isSendable = contactModel.isValid();
       self.update();
     })
+    
+    contactModel.on('mailsUpdated', function(){
+        self.isSendable = contactModel.isValid();
+        self.update();
+    })
+    
+    contactModel.on('add', function(){
+        self.isSendable = contactModel.isValid();
+        self.update();
+    })
+    
+    contactModel.on('nameUpdated', function(){
+        self.isSendable = contactModel.isValid();
+        self.update();
+    })
+    
+    this.sendMails = function() {
+      contactModel.send()
+        .then(function() {
+          alert('success');
+        })
+        .catch(function (e, url) {
+          alert('error');
+        });   
+    }

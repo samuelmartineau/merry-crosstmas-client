@@ -18,4 +18,10 @@
       background: rgba($COLOR_GREY_LIGHT, .2);
     }
   }
+
+  &.is-removing {
+     * {
+       display: none;
+     }
+  }
 }

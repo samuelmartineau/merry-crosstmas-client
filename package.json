@@ -11,7 +11,8 @@
     "build": "gulp iconfont && gulp build",
     "quality": "gulp quality",
     "coveralls": "istanbul cover -x '**/utils.js' tape -R spec ./tests/**/*.js",
-    "deploy": "npm run build && gulp deploy"
+    "deploy": "npm run build && gulp deploy",
+    "check": "npm-check"
   },
   "repository": {
     "type": "git",
@@ -71,13 +72,13 @@
     "require-dir": "^0.3.0",
     "riot": "^2.2.4",
     "run-sequence": "^1.1.4",
-    "tap-spec": "^4.1.0",
     "tape": "^4.2.0",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {
     "gulp-git": "^1.5.0",
+    "promise": "^7.0.4",
     "quill": "^0.20.0",
     "qwest": "^2.1.0",
     "smoothscroll": "^0.2.1"

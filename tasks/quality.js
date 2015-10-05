@@ -5,7 +5,6 @@ var gulpSassLint = require('gulp-sass-lint');
 var eslint = require('gulp-eslint');
 var gIf = require('gulp-if');
 var tape = require('gulp-tape');
-var tapSpec = require('tap-spec');
 
 function isAppScript(file) {
     return file.path.indexOf('node_modules') < 0;
@@ -29,7 +28,5 @@ gulp.task('style-lint', function() {
 
 gulp.task('test', function() {
     gulp.src(path.join(config.test.directory, config.test.files))
-        .pipe(tape({
-            reporter: tapSpec()
-        }));
+        .pipe(tape());
 });

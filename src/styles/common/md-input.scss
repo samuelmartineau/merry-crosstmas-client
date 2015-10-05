@@ -81,7 +81,7 @@
     opacity: .5;
   }
 
-  .valid {
+  .icon {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -91,12 +91,17 @@
     color: $COLOR_PRIMARY;
   }
 
-  &.show {
-    .valid {
-      display: block;
+  &.error {
+    input {
+      border-color: $COLOR_REMOVE;
     }
   }
 
+  &.valid {
+    .icon {
+      display: block;
+    }
+  }
 }
 
 @-webkit-keyframes inputlighter {

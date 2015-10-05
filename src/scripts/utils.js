@@ -48,16 +48,5 @@
          'use strict';
          var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
          return re.test(email);
-     },
-
-     uniq: function(collection, key) {
-         'use strict';
-         var valueArr = collection.map(function(item) {
-             return item[key];
-         });
-         var isDuplicate = valueArr.some(function(item, idx) {
-             return valueArr.indexOf(item) !== idx;
-         });
-         return !isDuplicate;
      }
  };
