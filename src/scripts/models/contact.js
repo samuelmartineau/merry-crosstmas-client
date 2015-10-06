@@ -27,6 +27,8 @@ var ContactModel = function(globalWindow) {
         parameters,
         currentContact,
         mails,
+        result,
+        filtered,
         previous;
 
     // minimum of contacts
@@ -36,7 +38,7 @@ var ContactModel = function(globalWindow) {
     self.contacts = [];
 
     // html mail content string
-    self.content = '';
+    self.content = '<div style=\'text-align: center;\'><span style=\'font-size: 32px;\'>Hello!!!</span></div><div style=\'text-align: center;\'><br></div><div>Do you remember our conversation? We decided to set up a Santa gift exchange between friends with a budget of <b>20$</b></div><div><br></div><div>You have to find a gift for @friend, good luck :)</div><div><br></div><div>See you at the end of the year</div>';
 
     // init first contacts
     Array.apply(null, Array(contactMinimum)).forEach(function() {
@@ -55,7 +57,7 @@ var ContactModel = function(globalWindow) {
     self.remove = function(id) {
         currentContact = utils.findById(self.contacts, id).mail;
         self.contacts.splice(utils.findIndex(self.contacts, id), 1);
-        cleanMails(currentContact.value);
+        updateMails(currentContact.value);
         self.trigger('remove', id);
     };
 
@@ -68,12 +70,12 @@ var ContactModel = function(globalWindow) {
     };
 
     self.editMail = function(id, value) {
+        previous = utils.findById(self.contacts, id).mail.value;
         currentContact = utils.findById(self.contacts, id).mail;
-        previous = currentContact.value;
         currentContact.value = value;
         currentContact.edited = true;
-        currentContact.valid = updateMails(value, id);
-        cleanMails(previous);
+        updateMails(previous);
+        updateMails(value);
         self.trigger('mailsUpdated');
     };
 
@@ -92,8 +94,16 @@ var ContactModel = function(globalWindow) {
 
     self.send = function() {
         if (self.isValid()) {
+
+            result = self.contacts.map(function(contact) {
+                return {
+                    name: contact.name.value,
+                    mail: contact.mail.value
+                };
+            });
+
             parameters = {
-                contacts: self.contacts,
+                contacts: result,
                 content: self.content
             };
 
@@ -110,26 +120,17 @@ var ContactModel = function(globalWindow) {
     };
 
     // Private methods
-    function updateMails(mail, id) {
-        errors = false;
-        self.contacts.forEach(function(contact) {
-            if (contact.mail.value === mail && contact.id !== id) {
-                errors = true;
-                contact.mail.valid = false;
-            }
+    function updateMails(mail) {
+        filtered = self.contacts.filter(function(contact) {
+            return contact.mail.value === mail;
         });
-        return utils.validateEmail(mail) && !errors;
-    }
 
-    function cleanMails(mail) {
-        errors = [];
-        self.contacts.forEach(function(contact, index) {
-            if (contact.mail.value === mail) {
-                errors.push(index);
-            }
-        });
-        if (errors.length === 1 && utils.validateEmail(self.contacts[errors[0]].mail.value)) {
-            self.contacts[errors[0]].mail.valid = true;
+        if (filtered.length > 1) {
+            filtered.forEach(function(contact) {
+                contact.mail.valid = false;
+            });
+        } else if (filtered.length === 1 && utils.validateEmail(filtered[0].mail.value)) {
+            filtered[0].mail.valid = true;
         }
     }
 };

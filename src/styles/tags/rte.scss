@@ -5,11 +5,18 @@
   .formatting-container {
     border-bottom: 1px solid $COLOR_GREY_1;
     padding: 5px 12px;
+    text-align: center;
+    background: rgba($COLOR_PRIMARY, .2);
 
     .ql-active,
     button:hover {
-      font-weight: bold;
+      color: $COLOR_PRIMARY;
     }
+  }
+
+  .row {
+    display: inline-block;
+    margin: .4em 0;
   }
 
   .editor-wrapper {
