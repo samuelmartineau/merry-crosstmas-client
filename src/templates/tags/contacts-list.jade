@@ -1,4 +1,5 @@
 contacts-list
+  p.explanation Complete your friends informations (minimum 3 people)
   .contact-list
     contact(each='{contact in contactModel.contacts}' contact='{contact}')
 
@@ -34,12 +35,16 @@ contacts-list
         self.update();
     })
     
-    this.sendMails = function() {
+    contactModel.on('sent', function(){
+        this.unmount()
+    })
+    
+    this.sendMails = function() {  
       contactModel.send()
         .then(function() {
-          alert('success');
+          riot.mount('result');
         })
         .catch(function (e, url) {
-          alert('error');
+          alert('server error');
         });   
     }

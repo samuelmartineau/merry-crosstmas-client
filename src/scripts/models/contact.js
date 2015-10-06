@@ -110,6 +110,7 @@ var ContactModel = function(globalWindow) {
             return new Promise(function(resolve, reject) {
                 globalWindow.qwest.post('/send', parameters, config)
                     .then(function(data) {
+                        self.trigger('sent');
                         return resolve(data);
                     })
                     .catch(function(e, url) {

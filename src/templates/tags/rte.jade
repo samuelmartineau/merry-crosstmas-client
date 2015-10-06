@@ -1,4 +1,5 @@
 rte
+  p.explanation Write your message and tag the friend name with <b>@friend</b>
   #content-container.content-container
     #editor-wrapper.editor-wrapper
       #formatting-container.formatting-container
@@ -42,3 +43,7 @@ rte
       }, 300));
       
     });
+    
+    contactModel.on('sent', function(){
+        this.unmount()
+    })
