@@ -43,8 +43,7 @@ contacts-list
       contactModel.send()
         .then(function() {
           riot.mount('result');
-        })
-        .catch(function (e, url) {
+        }, function(e, url) {
           alert('server error');
-        });   
+        })
     }
