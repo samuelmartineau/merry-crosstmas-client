@@ -29,6 +29,7 @@ rte
       #editor-container.editor-container
 
   script.
+    var self = this;
     this.on('mount', function(){
       var quill = new Quill('#editor-container', {
         modules: { toolbar: '#formatting-container' }
@@ -45,5 +46,5 @@ rte
     });
     
     contactModel.on('sent', function(){
-        this.unmount()
+        self.unmount()
     })
