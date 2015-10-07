@@ -1,6 +1,7 @@
 .content-container {
   margin: auto;
   background: $COLOR_WHITE;
+  box-shadow: $shadow-card;
 
   .formatting-container {
     border-bottom: 1px solid $COLOR_GREY_1;
@@ -17,11 +18,6 @@
   .row {
     display: inline-block;
     margin: .4em 0;
-  }
-
-  .editor-wrapper {
-    border: 1px solid $COLOR_GREY_2;
-    box-shadow: 0 0 2px 2px $COLOR_GREY_3;
   }
 
   .editor-container {

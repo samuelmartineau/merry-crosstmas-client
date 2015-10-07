@@ -11,20 +11,20 @@
     font-size: 3em;
     line-height: 1.25em;
     margin: 0;
+  }
+
+  &__linetag {
+    font-weight: 700;
+    margin: 1em 0;
 
     &:after {
       background: $COLOR_WHITE;
       content: '';
       display: block;
       height: 2px;
-      margin: .75em auto 0;
+      margin: 1em auto .5;
       position: relative;
-      width: 6em;
+      width: 50%;
     }
-  }
-
-  &__linetag {
-    font-weight: 700;
-    margin: 1.5em 0 0;
   }
 }

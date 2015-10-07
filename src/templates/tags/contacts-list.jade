@@ -1,15 +1,16 @@
 contacts-list
   p.explanation Complete your friends informations (minimum 3 people)
-  .contact-list
-    contact(each='{contact in contactModel.contacts}' contact='{contact}')
+  .container
+    .contact-list
+      contact(each='{contact in contactModel.contacts}' contact='{contact}')
 
-  .contact-control
-    .contact-control__cell
-      i.badge.icon.icon-group(onclick='{contactModel.add}')
+    .contact-control
+      .contact-control__cell
+        i.badge.icon.icon-group(onclick='{contactModel.add}')
 
-    .contact-control__cell
-      button.badge(class='{ invalid: !isSendable }' disabled='{!isSendable}')
-        i.icon.icon-paper(onclick='{sendMails}')
+      .contact-control__cell
+        button.badge(class='{ invalid: !isSendable }' disabled='{!isSendable}')
+          i.icon.icon-paper(onclick='{sendMails}')
 
   script.
     var self = this;
