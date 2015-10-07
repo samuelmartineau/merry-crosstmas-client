@@ -39,7 +39,7 @@ contacts-list
       contactModel.send()
         .then(function() {
           riot.mount('result');
-          this.unmount();
+          self.unmount();
         }, function(e, url) {
           alert('server error');
         })
