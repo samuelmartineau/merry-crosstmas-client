@@ -35,14 +35,11 @@ contacts-list
         self.update();
     })
     
-    contactModel.on('sent', function(){
-        this.unmount()
-    })
-    
     this.sendMails = function() {  
       contactModel.send()
         .then(function() {
           riot.mount('result');
+          this.unmount();
         }, function(e, url) {
           alert('server error');
         })
