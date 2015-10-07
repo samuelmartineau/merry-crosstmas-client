@@ -4,6 +4,7 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
 ga('create', 'UA-65391889-2', 'auto');
-ga('send', 'pageview');</script><script src="https://cdnjs.cloudflare.com/ajax/libs/riot/2.0.14/riot+compiler.js"></script><script src="tags/contact.js" type="riot/tag"></script><script src="tags/contacts-list.js" type="riot/tag"></script><script src="tags/rte.js" type="riot/tag"></script><script src="tags/result.js" type="riot/tag"></script><script>riot.mount('contacts-list')
+ga('send', 'pageview');
+setTimeout("ga('send', 'event', { eventCategory: '30 seconds on page', eventAction: 'Read' })", 30000);</script><script src="https://cdnjs.cloudflare.com/ajax/libs/riot/2.0.14/riot+compiler.js"></script><script src="tags/contact.js" type="riot/tag"></script><script src="tags/contacts-list.js" type="riot/tag"></script><script src="tags/rte.js" type="riot/tag"></script><script src="tags/result.js" type="riot/tag"></script><script>riot.mount('contacts-list')
 riot.mount('rte')
 var contactModel = new ContactModel(window);</script></body></html>
