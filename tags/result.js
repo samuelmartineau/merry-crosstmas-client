@@ -1,1 +1,1 @@
-riot.tag("result","<h1>Your Mails have been sent successfully :)</h1>",function(e){});
+riot.tag("result",'<div class="container"><h1>Your Mails have been sent successfully :)</h1></div>',function(s){});
