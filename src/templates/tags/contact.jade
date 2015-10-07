@@ -8,7 +8,7 @@ contact
       label Name
       i.icon.icon-check
     .md-input(class='{ valid: contact.mail.edited && contact.mail.valid, error: contact.mail.edited && !contact.mail.valid }')
-      input(type="text" required onkeyup='{ changeMail }')
+      input(type="email" required onkeyup='{ changeMail }')
       span.highlight
       span.bar
       label Mail
