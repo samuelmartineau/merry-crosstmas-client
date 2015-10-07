@@ -6,7 +6,7 @@ contacts-list
 
     .contact-control
       .contact-control__cell
-        i.badge.icon.icon-group(onclick='{contactModel.add}')
+        i.badge.icon.icon-group(onclick='{addContact}')
 
       .contact-control__cell
         button.badge(class='{ invalid: !isSendable }' disabled='{!isSendable}')
@@ -14,7 +14,6 @@ contacts-list
 
   script.
     var self = this;
-    
     self.isSendable = contactModel.isValid();
 
     contactModel.on('remove', function(){
@@ -37,7 +36,13 @@ contacts-list
         self.update();
     })
     
+    this.addContact = function() {
+        ga('send', 'event', { eventCategory: 'add friend', eventAction: 'Click' })
+        contactModel.add();
+    }
+    
     this.sendMails = function() {
+      ga('send', 'event', { eventCategory: 'send mail', eventAction: 'Click' })
       contactModel.send()
         .then(function() {
           riot.mount('result');
