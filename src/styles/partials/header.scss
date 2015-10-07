@@ -15,14 +15,14 @@
 
   &__linetag {
     font-weight: 700;
-    margin: 1em 0;
+    margin: .5em 0;
 
     &:after {
       background: $COLOR_WHITE;
       content: '';
       display: block;
       height: 2px;
-      margin: 1em auto .5;
+      margin: 1.5em auto .5;
       position: relative;
       width: 50%;
     }
