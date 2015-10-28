@@ -3,7 +3,6 @@ var path = require('path');
 var config = require('../config/config');
 var imagemin = require('gulp-imagemin');
 var pngquant = require('imagemin-pngquant');
-var mozjpeg = require('imagemin-mozjpeg');
 var gIf = require('gulp-if');
 var runSequence = require('run-sequence');
 
@@ -23,9 +22,7 @@ gulp.task('images', function() {
             svgoPlugins: [{
                 removeViewBox: false
             }],
-            use: [pngquant(), mozjpeg({
-                quality: 70
-            })]
+            use: [pngquant()]
         })))
         .pipe(gulp.dest(path.join(config.dist, 'assets', 'images')));
 });
