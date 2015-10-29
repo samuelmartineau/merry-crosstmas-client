@@ -9,6 +9,21 @@ body {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
+
+  &.overlay {
+    overflow: hidden;
+
+    &:before {
+      content: '';
+      background: $OVERLAY;
+      position: absolute;
+      z-index: 10000;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+    }
+  }
 }
 
 .container {

@@ -9,8 +9,8 @@ contacts-list
         i.badge.icon.icon-group(onclick='{addContact}')
 
       .contact-control__cell
-        button.badge(class='{ invalid: !isSendable }' disabled='{!isSendable}')
-          i.icon.icon-paper(onclick='{sendMails}')
+        button.badge(onclick='{sendMails}' class='{ invalid: !isSendable }' disabled='{!isSendable}')
+          i.icon.icon-paper
 
   script.
     var self = this;
@@ -42,12 +42,15 @@ contacts-list
     }
     
     this.sendMails = function() {
+      document.body.className = 'overlay';
       ga('send', 'event', { eventCategory: 'send mail', eventAction: 'Click' })
       contactModel.send()
         .then(function() {
           riot.mount('result');
           self.unmount();
+          document.body.className = '';
         }, function(e, url) {
           alert('server error');
+          document.body.className = '';
         })
     }
