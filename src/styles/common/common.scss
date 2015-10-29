@@ -12,6 +12,7 @@ body {
 
   &.overlay {
     overflow: hidden;
+    position: relative;
 
     &:before {
       content: '';
