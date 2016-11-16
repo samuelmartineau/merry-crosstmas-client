@@ -1,0 +1,32 @@
+@import '~@angular/material/core/theming/prebuilt/deeppurple-amber.css';
+@import './styles/variables';
+
+html, body {
+  font-size: 100%;
+}
+
+body {
+  font-family: $FONT_FAMILY;
+  background-image: linear-gradient(60deg, $BG_BACKGROUND_LEFT 5%, $BG_BACKGROUND_RIGHT), url('assets/background.png');
+  background-attachment: fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 3em; 
+
+  &.overlay {
+    overflow: hidden;
+    position: relative;
+
+    &:before {
+      content: '';
+      background: $OVERLAY;
+      position: absolute;
+      z-index: 10000;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+<form [formGroup]="complexForm" novalidate>
+    <ul class="contacts">
+        <app-contact 
+            [@flyInOut]="'in'"
+            [contact]="contact"
+            [complexForm]="complexForm"
+            [canBeRemoved]="canBeRemoved"
+            [index]="i"
+            [isLast]="l"
+            *ngFor="let contact of contacts | async; trackBy:post?.nameId; let i = index; let l = last" 
+            class="contacts__item">
+            </app-contact>
+    </ul>
+</form>

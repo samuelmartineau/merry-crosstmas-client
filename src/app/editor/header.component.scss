@@ -1,0 +1,32 @@
+@import '../../styles/variables';
+
+.header {
+  text-align: center;
+  margin: 2em 0;
+
+  &__icon {
+    vertical-align: middle;
+    height: auto;
+    width: 3rem;
+  }
+
+  &__title {
+    font-size: 3rem;
+    margin: 0;
+  }
+
+  &__linetag {
+    font-weight: 700;
+    margin: .5em 0;
+
+    &:after {
+      background: $COLOR_WHITE;
+      content: '';
+      display: block;
+      height: 2px;
+      margin: 1.5em auto 0;
+      position: relative;
+      width: 50%;
+    }
+  }
+}

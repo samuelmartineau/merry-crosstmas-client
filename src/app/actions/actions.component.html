@@ -1,0 +1,12 @@
+<div class="actions">
+  <div class="actions__button">
+    <button md-fab (click)="addContact()">
+      <md-icon class="md-24">people_outline</md-icon>
+    </button>
+  </div>
+  <div class="actions__button">
+    <button md-fab [disabled]="!isSendable" (click)="addContact()">
+        <md-icon class="md-24">send</md-icon>
+    </button>
+  </div>
+</div>

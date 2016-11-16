@@ -1,0 +1,13 @@
+<md-card class="contact">
+  <div class="contact__group" #contactElement>
+    <md-input class="contact__input" placeholder="name" required [(ngModel)]="contact.name" [formControl]="complexForm.controls[contact.nameId]"></md-input>
+    <div class="contact__error" >{{complexForm.controls[contact.nameId].dirty && !complexForm.controls[contact.nameId].valid ? 'Name is required. (max 255)' : ''}}</div>
+  </div>
+  <div class="contact__group">
+    <md-input class="contact__input" placeholder="email" required [(ngModel)]="contact.email" [formControl]="complexForm.controls[contact.emailId]"></md-input>
+    <div class="contact__error" >{{complexForm.controls[contact.emailId].dirty && !complexForm.controls[contact.emailId].valid ? 'Email should has valid format' : ''}}</div>
+  </div>
+  <button md-mini-fab class="contact__button" *ngIf="canBeRemoved" (click)="removeContact($event, index)" md-button>
+    <md-icon>close</md-icon>
+  </button>
+</md-card>

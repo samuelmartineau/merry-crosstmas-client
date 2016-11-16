@@ -1,0 +1,25 @@
+@import '../../styles/variables';
+
+.contact__group {
+    margin: 0 0 1em 0;
+}
+
+.contact__input {
+    width: 100%;
+}
+
+.contact__error {
+    font-size: 0.6rem;
+    color: $COLOR_ERROR;
+
+    &:after {
+        content: ".";
+        visibility: hidden;
+    }
+}
+
+.contact__button {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
