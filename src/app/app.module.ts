@@ -14,6 +14,9 @@ import { ContactComponent } from './contact/contact.component';
 import { ActionsComponent } from './actions/actions.component';
 
 import { ContactService } from './contact.service';
+import { ApiService } from './api.service';
+import { EditorService } from './editor.service';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +27,7 @@ import { ContactService } from './contact.service';
     ContactsComponent,
     ContactComponent,
     ActionsComponent,
+    FooterComponent,
   ],
   imports: [
     MaterialModule.forRoot(),
@@ -32,7 +36,7 @@ import { ContactService } from './contact.service';
     ReactiveFormsModule,
     HttpModule
   ],
-  providers: [ContactService],
+  providers: [ContactService, ApiService, EditorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

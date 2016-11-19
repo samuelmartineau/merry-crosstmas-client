@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ContactService} from '../contact.service';
+import {ApiService} from '../api.service';
 
 @Component({
   selector: 'app-actions',
@@ -8,8 +9,9 @@ import {ContactService} from '../contact.service';
 })
 export class ActionsComponent implements OnInit {
   isSendable: boolean;
+  isSending: boolean;
 
-  constructor(private _contactService:ContactService) {
+  constructor(private _contactService:ContactService, private _apiService:ApiService) {
     this._contactService.contactsValidity
       .subscribe(validity => {
         this.isSendable = validity;
@@ -21,7 +23,12 @@ export class ActionsComponent implements OnInit {
   }
 
   send() {
-    
+    this.isSending = true;
+    this._apiService
+      .send()
+      .subscribe(response=>{
+        this.isSending = false;
+      }, () => console.log, () => console.log);
   }
 
   ngOnInit() {

@@ -13,20 +13,4 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   margin-bottom: 3em; 
-
-  &.overlay {
-    overflow: hidden;
-    position: relative;
-
-    &:before {
-      content: '';
-      background: $OVERLAY;
-      position: absolute;
-      z-index: 10000;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      left: 0;
-    }
-  }
 }

@@ -1,11 +1,3 @@
-// Shadows
-$color-shadow: rgba(0, 0, 0, .1);
-$text-shadow: .1rem .1rem .1rem #666;
-$shadow-default: .1rem .1rem .4rem 0 $color-shadow;
-$shadow-card: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
-$shadow-hover: .5rem .5rem .4rem 0 rgba(0, 0, 0, .3);
-$box-shadow: .5rem .5rem .4rem 0 rgba(0, 0, 0, .3);
-
 // color
 $BG_BACKGROUND_LEFT: rgba(255, 165, 150, .5);
 $BG_BACKGROUND_RIGHT: rgba(0, 228, 255, .35);
@@ -18,7 +10,7 @@ $COLOR_GREY_2: #aaa;
 $COLOR_GREY_3: #ddd;
 $COLOR_GREY_4: rgba($COLOR_GREY_LIGHT, .2);
 $COLOR_ERROR: #ef5350;
-$OVERLAY: rgba(0, 0, 0, .3);
+$BACKDROP: rgba(0, 0, 0, .3);
 $EDITOR_BLUE: rgb(0,228,255);
 
 // badge

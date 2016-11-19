@@ -9,4 +9,14 @@
     flex: 1;
     text-align: center;
   }
+
+  &__backdrop {
+    background: $BACKDROP;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    position: fixed;
+    overflow: hidden;
+  }
 }
