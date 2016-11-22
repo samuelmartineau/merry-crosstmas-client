@@ -16,8 +16,8 @@ function removeItem(list, index) {
 export class ContactService {
   contacts: Observable<Contact[]>
   private _contacts: BehaviorSubject<Contact[]>;
-  private contactStore: { contacts: Contact[], contactsValidity: boolean };
-  contactsValidity: Observable<boolean>;
+  private contactStore: { contacts: Contact[], contactsValidity: boolean};
+  contactsValidity: Observable<boolean> = new Subject<boolean>();
   private _contactsValidity: Subject<boolean>;
 
   constructor() {
@@ -25,7 +25,7 @@ export class ContactService {
     this._contacts = new BehaviorSubject([...this.contactStore.contacts]);
     this.contacts = this._contacts.asObservable();
 
-    this._contactsValidity = new Subject();
+    this._contactsValidity = new Subject<boolean>();
     this._contactsValidity.next(this.contactStore.contactsValidity);
     this.contactsValidity = this._contactsValidity.asObservable();
   }
@@ -43,5 +43,11 @@ export class ContactService {
   removeContactByIndex(index): void {
     this.contactStore.contacts.splice(index, 1);
     this._contacts.next(Object.assign({}, this.contactStore).contacts);
+  }
+
+  reset(): void {
+    this.contactStore = {contacts: Array.apply(null, {length: MIN_CONTACT}).map(() => new Contact()), contactsValidity: false };
+    this._contacts.next(Object.assign({}, this.contactStore).contacts);
+    this._contactsValidity.next(Object.assign({}, this.contactStore).contactsValidity);
   }
 }

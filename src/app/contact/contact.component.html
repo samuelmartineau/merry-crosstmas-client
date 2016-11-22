@@ -7,7 +7,7 @@
     <md-input class="contact__input" placeholder="email" required [(ngModel)]="contact.email" [formControl]="complexForm.controls[contact.emailId]"></md-input>
     <div class="contact__error" >{{complexForm.controls[contact.emailId].dirty && !complexForm.controls[contact.emailId].valid ? 'Email should has valid format' : ''}}</div>
   </div>
-  <button md-mini-fab class="contact__button" *ngIf="canBeRemoved" (click)="removeContact($event, index)" md-button>
+  <button type="button" md-mini-fab class="contact__button" *ngIf="canBeRemoved" (click)="removeContact($event, index)" md-button>
     <md-icon>close</md-icon>
   </button>
 </md-card>

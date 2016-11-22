@@ -12,6 +12,7 @@ import { InstructionsComponent } from './instructions/instructions.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { ContactComponent } from './contact/contact.component';
 import { ActionsComponent } from './actions/actions.component';
+import {ToastModule} from 'ng2-toastr/ng2-toastr';
 
 import { ContactService } from './contact.service';
 import { ApiService } from './api.service';
@@ -34,7 +35,8 @@ import { FooterComponent } from './footer/footer.component';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    ToastModule
   ],
   providers: [ContactService, ApiService, EditorService],
   bootstrap: [AppComponent]

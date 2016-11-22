@@ -1,5 +1,5 @@
 import {
-  Component, Input, OnInit, Output, ViewChild, ElementRef
+  Component, Input, ViewChild, ElementRef
 } from '@angular/core';
 import { Contact } from '../contact';
 import { FormGroup } from '@angular/forms';
@@ -11,7 +11,7 @@ import smoothScroll from 'smoothscroll';
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss']
 })
-export class ContactComponent implements OnInit {
+export class ContactComponent {
   @ViewChild('contactElement') el:ElementRef;
   @Input() contact: Contact;
   @Input() complexForm: FormGroup;
@@ -34,8 +34,4 @@ export class ContactComponent implements OnInit {
       smoothScroll(this.el.nativeElement, 500);
     }
   }
-
-  ngOnInit() {
-  }
-
 }

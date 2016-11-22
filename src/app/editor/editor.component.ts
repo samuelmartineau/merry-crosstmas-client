@@ -19,7 +19,7 @@ export class EditorComponent {
 
   onUpdate(delta, oldDelta, source) {
       if (source == 'user') {
-        this._editorService.set(this.quill.root.innerHTML)
+        this._editorService.set(this.quill.root.innerHTML);
       }
     }
 
@@ -30,6 +30,7 @@ export class EditorComponent {
       },
       theme: 'snow'
     });
+    this._editorService.set(this.quill.root.innerHTML);
     this.quill.on('text-change', this.onUpdate.bind(this));
   }
 }

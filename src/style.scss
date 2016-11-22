@@ -1,4 +1,5 @@
 @import '~@angular/material/core/theming/prebuilt/deeppurple-amber.css';
+@import '../node_modules/ng2-toastr/bundles/ng2-toastr.min';
 @import './styles/variables';
 
 html, body {
@@ -7,7 +8,7 @@ html, body {
 
 body {
   font-family: $FONT_FAMILY;
-  background-image: linear-gradient(60deg, $BG_BACKGROUND_LEFT 5%, $BG_BACKGROUND_RIGHT), url('assets/background.png');
+  background-image: linear-gradient(60deg, $BG_BACKGROUND_LEFT 5%, $BG_BACKGROUND_RIGHT), url('assets/background.jpg');
   background-attachment: fixed;
   background-position: center center;
   background-repeat: no-repeat;
